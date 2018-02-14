@@ -1,5 +1,7 @@
 package sit.model;
+
 public class MotorVehicle {
+
     private String motorType;
     private int motorEngine;
     private int motorAge;
@@ -49,17 +51,25 @@ public class MotorVehicle {
         this.motorName = motorName;
     }
 
-    public double motorTax(){
+    public double motorTax() {
         return tax;
     }
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        MotorVehicle temp;
+        if (obj != null && obj instanceof MotorVehicle) {
+            temp = (MotorVehicle) obj;
+            if (motorName == temp.motorName && motorEngine == temp.motorEngine) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return "MotorVehicle{" + "motorType=" + motorType + ", motorEngine=" + motorEngine + ", motorAge=" + motorAge + ", motorName=" + motorName + '}';
     }
-    
-    
-    
-}
-    
 
+}
